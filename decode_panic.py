@@ -17,8 +17,9 @@ def main():
     with open(sys.argv[1], 'r') as f:
         for line_cnt, line in enumerate(f):
             if 'Code:' in line and 'Bad' not in line:
+                line = line.split('Code: ')[1]
                 print('Line: {0}\n{1}'.format(line_cnt, line), end='')
-                print_code(line.split()[1:])
+                print_code(line.split())
                 print()
 
 def print_code(codes):
